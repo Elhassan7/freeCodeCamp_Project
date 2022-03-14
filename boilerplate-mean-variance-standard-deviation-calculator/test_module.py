@@ -15,7 +15,7 @@ class UnitTests(unittest.TestCase):
         self.assertAlmostEqual(actual, expected, "Expected different output when calling 'calculate()' with '[9,1,5,3,3,3,2,9,0]'")
     
     def test_calculate_with_few_digits(self):
-        self.assertRaisesRegex(ValueError, "List must contain nine numbers.", mean_var_std.calculate, [2,6,2,8,4,0,1,])
+        self.assertRaisesRegex(ValueError, "List must contain nine numbers.", mean_var_std.calculate, [2,6,2,8,4,0,1])
 
 if __name__ == "__main__":
     unittest.main()
