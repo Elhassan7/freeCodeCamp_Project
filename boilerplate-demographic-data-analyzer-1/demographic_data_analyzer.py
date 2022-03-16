@@ -3,7 +3,7 @@ import pandas as pd
 
 def calculate_demographic_data(print_data=True):
     # Read data from file
-    df = pd.read_csv("adult.data.csv")
+    df = pd.read_csv(r"D:\INPT2\Machine Learning\freeCodeCamp_Project\boilerplate-demographic-data-analyzer-1\adult.data.csv")
 
     # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
     race_count = df.groupby("race").count()["age"]
@@ -38,7 +38,7 @@ def calculate_demographic_data(print_data=True):
     highest_earning_country_percentage = round((len(highest_earning_country)*100)/len(df["native-country"]), 10)
 
     # Identify the most popular occupation for those who earn >50K in India.
-    top_IN_occupation = df[(df["salary"=='>50K']) & (df["native-country"=='India'])]["occupation"]
+    top_IN_occupation = df[(df["salary"]=='>50K') & (df["native-country"]=='India')]["occupation"].value_counts().index[0]
 
     # DO NOT MODIFY BELOW THIS LINE
 
