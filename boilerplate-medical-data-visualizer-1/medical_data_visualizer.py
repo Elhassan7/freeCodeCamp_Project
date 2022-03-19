@@ -7,10 +7,12 @@ import numpy as np
 df = pd.read_csv("boilerplate-medical-data-visualizer-1\medical_examination.csv")
 
 # Add 'overweight' column
-df['overweight'] = df["weight"]/(df["height"]**2)
+bmi = df['weight'] / np.square(df['height']/100)
+df['overweight'] = (bmi > 25).astype('uint8')
 
 # Normalize data by making 0 always good and 1 always bad. If the value of 'cholesterol' or 'gluc' is 1, make the value 0. If the value is more than 1, make the value 1.
-
+df['gluc'] = (df['gluc'] != 1).astype('uint8')
+df['cholesterol'] = (df['cholesterol'] != 1).astype('uint8')
 
 # Draw Categorical Plot
 def draw_cat_plot():
