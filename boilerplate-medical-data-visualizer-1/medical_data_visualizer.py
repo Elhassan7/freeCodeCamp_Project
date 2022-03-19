@@ -7,7 +7,7 @@ import numpy as np
 df = pd.read_csv("boilerplate-medical-data-visualizer-1\medical_examination.csv")
 
 # Add 'overweight' column
-df['overweight'] = None
+df['overweight'] = df["weight"]/(df["height"]**2)
 
 # Normalize data by making 0 always good and 1 always bad. If the value of 'cholesterol' or 'gluc' is 1, make the value 0. If the value is more than 1, make the value 1.
 
